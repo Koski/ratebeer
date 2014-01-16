@@ -1,1 +1,1 @@
-deployd in heroku at: http://quiet-garden-2743.herokuapp.com/breweries
+deployed in heroku at: http://quiet-garden-2743.herokuapp.com/breweries
