@@ -40,6 +40,11 @@ td:first-child{
   text-align:left;
 }
 
+.naviBar {
+  padding: 10px;
+  background:aquamarine;
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;
