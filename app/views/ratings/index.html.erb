@@ -3,5 +3,8 @@
 <p>Number of ratings: <%= @ratings.count %></p>
 
 <% @ratings.each do |rating| %>
-    <li> <%=rating.to_s %></li>
+    <li> <%= rating %> <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
 <% end %>
+<p>
+  <%= link_to 'Rate a beer', new_rating_path %>
+</p>
