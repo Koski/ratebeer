@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, only: [:show, :destroy]
+  before_action :authenticate, only: [:destroy]
 
 
 
@@ -82,9 +82,7 @@ class BreweriesController < ApplicationController
     admin_accounts = { "admin" => "secret", "antti" => "koski", "arto" => "springMies", "matti" => "rubyHipster"}
 
     authenticate_or_request_with_http_basic do |username, password|
-      admin_accounts.each do |acname, pw|
-        username == acname and password == pw
-      end
+      admin_accounts[username] == password
     end
   end
 end
