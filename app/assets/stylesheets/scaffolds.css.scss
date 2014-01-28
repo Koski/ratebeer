@@ -29,22 +29,6 @@ a {
   }
 }
 
-th {
-  padding-left:8px;
-}
-
-td{
-  text-align:center;
-}
-td:first-child{
-  text-align:left;
-}
-
-.naviBar {
-  padding: 15px;
-  background:aquamarine;
-}
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;

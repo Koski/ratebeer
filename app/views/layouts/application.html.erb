@@ -8,10 +8,22 @@
 </head>
 <body>
 <div class="naviBar">
-  <%= link_to 'All Breweries', breweries_path %>
-  <%= link_to 'All beers', beers_path %>
-  <%= link_to 'Beer ratings', ratings_path %>
+	<%= link_to 'All Breweries', breweries_path %>
+  	<%= link_to 'All beers', beers_path %>
+  	<%= link_to 'Beer ratings', ratings_path %>
+  	<%= link_to 'Users', users_path %>
+  	|
+  	<% if not current_user.nil? %>
+  		<%= link_to current_user.username, current_user %>
+  		<%= link_to 'Rate a beer', new_rating_path %>
+  		<%= link_to 'sign out', signout_path, method: :delete %>
+  	<% else %>
+  		<%= link_to 'sign in', signin_path %>
+  		<%= link_to 'sign up', signup_path %>		
+	<% end %>
 </div>
+
+
 <%= yield %>
 
 </body>
