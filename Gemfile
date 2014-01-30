@@ -16,6 +16,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+#pw encryption gem
+gem 'bcrypt-ruby', '~> 3.1.2'
+
 #debug gem
 gem 'byebug', group: [:development, :test]
 

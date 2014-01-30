@@ -8,9 +8,13 @@
 	an average of <%= @user.average_rating %>
 </p>
 <p>
-	Member of 
-	<% @user.beer_clubs.each do |club| %>
+	<% if @user.beer_clubs.any? %>
+		Member of 
+		<% @user.beer_clubs.each do |club| %>
 		<%= link_to club.name, club %>
+		<% end %>
+	<% else %>
+		Hasn't joined any clubs	yet
 	<% end %>
 </p>
 <p>
@@ -18,9 +22,18 @@
 </p>
 
 	<% @user.ratings.each do |rating| %>
-      <li> <%= rating %> <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+      <li> 
+      	<%= rating %> 
+      	<% if @user == current_user %>
+      		<%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+      	<% end %>	
+      </li>
     <% end %>
+<br>
+<% if @user == current_user %>
+	<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+	<%= link_to 'Change password', edit_user_path(@user) %>
+<% end %>
 
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<br><br>
 <%= link_to 'Back', users_path %>

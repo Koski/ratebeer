@@ -5,14 +5,17 @@ class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
   has_many :ratings, :through => :beers
 
-  def current_year
-    Time.now.year
+  def no_future_year
+    if year > Time.now.year
+      errors.add(:year, "- no futuristic breweries!")
+    end
   end
 
   validates :name, presence: true
   validates :year, numericality: { greater_than_or_equal_to: 1042,
-                                    less_than_or_equal_to: 2014,
                                     only_integer: true }
+  validate :no_future_year
+
 
   def print_report
     puts name

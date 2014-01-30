@@ -28,13 +28,8 @@ class MembershipsController < ApplicationController
     @beer_clubs = BeerClub.all
     @membership = Membership.new(membership_params)
 
-    if current_user.id == @membership.user_id
-      raise
-    end
     respond_to do |format|
       if @membership.save
-        puts(@membership.user_id)
-        raise
         current_user.memberships << @membership
         format.html { redirect_to @membership, notice: 'Membership was successfully created.' }
         format.json { render action: 'show', status: :created, location: @membership }

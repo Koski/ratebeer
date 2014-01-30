@@ -17,6 +17,10 @@
     <%= f.select :beer_club_id, options_from_collection_for_select(@beer_clubs, :id, :name) %>
   </div>
   
+  <div class="hidden">
+    <%= hidden_field_tag(:user_id, current_user.id) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
