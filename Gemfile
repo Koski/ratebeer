@@ -10,6 +10,9 @@ gem 'rails', '4.0.2'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '~> 2.14.1'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :production do
