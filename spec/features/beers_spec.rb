@@ -16,7 +16,7 @@ describe "Beer" do
 		expect(brewery.beers.count).to eq(1)
 	end
 
-	it "does not save a beer with no name" do
+	it "does not save a beer with an invalid name" do
 		visit new_beer_path
 
 		fill_in('beer_name', with:"A")
