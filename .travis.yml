@@ -1,10 +1,17 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: DXocYR5DZaYPL5b7ZywHUuMOdq8WYCoUGkXX/apCZhqkmKJfUZcskNYLgQTbEYH+UwYvdnBA6it/6WeDGOahqpt2TMlJldjNFNEgPz4m4J5pszBnwcJXLWoweIpcWlNo8RJgwmBsOtsI4xF9Hd1lOXkv1jGGSDS4n0GWktEAnu8=
+  run: "rake db:migrate"
+  app: quiet-garden-2743
+  on:
+    repo: Koski/ratebeer
+
