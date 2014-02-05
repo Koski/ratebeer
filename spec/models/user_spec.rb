@@ -49,7 +49,7 @@ describe User do
 
   describe "favorite beer" do
 
-    let(:user){FactoryGirl.create(:user) }
+    let(:user){ FactoryGirl.create(:user) }
 
     it "has method for determining one" do
       user.should respond_to :favorite_beer
@@ -70,6 +70,14 @@ describe User do
       best = create_beer_with_rating(25, user)
 
       expect(user.favorite_beer).to eq(best)
+    end
+  end
+
+  describe "favorite style" do
+    let(:user){ FactoryGirl.create(:user) }
+
+    it "has method for determinig it" do
+      user.should respond_to :ravorite_style
     end
   end
 

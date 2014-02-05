@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 		return nil if ratings.empty?
 		ratings.order(score: :desc).limit(1).first.beer
     end
-
+    def favorite_style
+    end
 	include RatingAverage
 
 	has_many :ratings, :dependent => :destroy

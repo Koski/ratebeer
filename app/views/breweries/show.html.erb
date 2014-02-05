@@ -14,7 +14,7 @@
 
 <p>
   <% @brewery.beers.each do |beer| %>
-      <%= link_to beer.name,beer %>
+      <%= link_to beer.name,beer %><br>
   <% end %>
 </p>
 <p>
@@ -23,6 +23,9 @@
       has <%= @brewery.ratings.count %> <%= "rating".pluralize(@brewery.ratings.count) %>, average: <%= @brewery.average_rating %>
   <% end %>
 </p>
-
-<%= link_to 'Edit', edit_brewery_path(@brewery) %> |
+<% if not current_user.nil? %>
+          <%= link_to 'Edit', edit_brewery_path(@brewery) %>
+          <%= link_to 'Destroy', @brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<br>
 <%= link_to 'Back', breweries_path %>

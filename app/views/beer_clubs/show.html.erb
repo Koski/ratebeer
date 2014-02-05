@@ -14,6 +14,14 @@
   	<li> <%= link_to user.username, user %> </li>
   <% end %>
 </p>
+<p>
+	<% if not current_user.nil? %>
+          <td><%= link_to 'Edit', edit_beer_club_path(@beer_club) %></td>
+    <% end %>
+    
+    <% if current_user.admin? %>
+    	<td><%= link_to 'Destroy', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+</p>
 
-<%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |
 <%= link_to 'Back', beer_clubs_path %>
