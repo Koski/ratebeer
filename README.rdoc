@@ -1,1 +1,3 @@
 deployed in heroku at: http://quiet-garden-2743.herokuapp.com/breweries
+
+[![Build Status](https://travis-ci.org/koski/ratebeer-public.png)](https://travis-ci.org/koski/ratebeer-public)
