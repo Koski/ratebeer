@@ -9,6 +9,14 @@
 	an average of <%= @user.average_rating %>
 </p>
 <p>
+	<% if @user.ratings.empty? %>
+		has no favorite style or brewery
+	<% else %>
+		favorite beer style is <%=@user.favorite_style%><br>
+		favorite brewery is <%=@user.favorite_brewery%>
+	<%end%>
+</p>
+<p>
 	<% if @user.beer_clubs.any? %>
 		Member of 
 		<% @user.beer_clubs.each do |club| %>
@@ -18,6 +26,7 @@
 		Hasn't joined any clubs	yet
 	<% end %>
 </p>
+
 <p>
 	<strong>Ratings: </strong>
 </p>

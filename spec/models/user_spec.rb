@@ -77,10 +77,54 @@ describe User do
     let(:user){ FactoryGirl.create(:user) }
 
     it "has method for determinig it" do
-      user.should respond_to :ravorite_style
+      user.should respond_to :favorite_style
+    end
+
+    it "without ratings does not have one" do
+      expect(user.favorite_style).to eq(nil)
+    end
+
+    it "with only one rating has the style of the rated beer" do
+      beer = create_beer_with_rating(13, user)
+      expect(user.favorite_style).to eq(beer.style)
+    end
+    it "changes when other style beer is rated higher" do
+      nanny = create_nanny_with_rating(20, user)
+      
+      beer = create_beer_with_rating(25, user)
+      expect(user.favorite_style).to eq(beer.style)
     end
   end
 
+  describe "favorite brewery" do
+    let(:user){ FactoryGirl.create(:user) }
+
+    it "has method for determining it" do
+      user.should respond_to :favorite_brewery
+    end
+
+    it "without ratings does not have one" do
+      expect(user.favorite_brewery).to eq(nil)
+    end
+
+    it "with only one rating has the brewery of the rated beer" do
+      beer = create_beer_with_rating(13, user)
+      expect(user.favorite_brewery).to eq(beer.brewery.name)
+    end
+
+    it "changes when beer with other brewery is rated higher" do
+      beer = create_beer_with_rating(20, user)
+      nanny = create_nanny_with_rating(25, user)
+      expect(user.favorite_brewery).to eq(nanny.brewery.name)
+    end
+  end
+
+end
+
+def create_nanny_with_rating(score, user)
+  beer = FactoryGirl.create(:nanny)
+  FactoryGirl.create(:rating, score: score, beer:beer, user:user)
+  beer
 end
 
 def create_beer_with_rating(score, user)

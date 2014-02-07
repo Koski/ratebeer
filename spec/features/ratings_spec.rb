@@ -25,6 +25,14 @@ describe "Rating" do
     expect(beer1.average_rating).to eq(15)
   end
 
+  it "when given is shown in all ratings page" do
+    create_rating(beer:"Karhu", score:25)
+    create_rating(beer:"iso 3", score:19)
+    expect(page).to have_content 'Number of ratings: 2'
+    expect(page).to have_content 'Karhu, 25'
+    expect(page).to have_content 'iso 3, 19'
+  end
+
   it "when given and destroyed it doesnt persist in the system" do
     create_rating(beer:"Karhu", score:23)
     create_rating(beer:"iso 3", score:10)

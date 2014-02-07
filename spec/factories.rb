@@ -24,6 +24,12 @@ FactoryGirl.define do
     style "Lager"
   end
 
+  factory :nanny, class: Beer do
+    name "nanny state"
+    brewery
+    style "lowalcohol"
+  end
+
   factory :koff, class: Brewery do
     name "Koff"
     year 1891
