@@ -18,6 +18,9 @@ Ratebeer::Application.routes.draw do
 
   get 'signup', to: 'users#new'
 
+  get 'places', to: 'places#index'
+  post 'places', to:'places#search'
+
   root 'breweries#index'
 
  # get 'kaikki_bisukat', to: 'beers#index'

@@ -18,14 +18,21 @@ group :test do
   gem 'launchy'
   gem 'rspec-rails', '~> 2.14.1'
   gem 'simplecov', require: false
+  gem 'webmock'
   
 end
 
 group :production do
+
   gem 'pg'
   gem 'rails_12factor'
 end
 
+
+gem "rails-settings-cached", "0.3.1"
+
+#get api
+gem 'httparty'
 #pw encryption gem
 gem 'bcrypt-ruby', '~> 3.1.2'
 
