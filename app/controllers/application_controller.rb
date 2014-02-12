@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
   	return nil if session[:user_id].nil?
   	User.find(session[:user_id])
   end
+  
 end

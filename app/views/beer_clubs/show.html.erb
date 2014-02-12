@@ -15,13 +15,21 @@
   <% end %>
 </p>
 <p>
-	<% if not current_user.nil? %>
-          <td><%= link_to 'Edit', edit_beer_club_path(@beer_club) %></td>
+	<% if current_user %>
+    <% unless current_user.beer_clubs.include?(@beer_club)%>     
+        <%= form_for(@membership) do |f| %>
+          <%= f.hidden_field :beer_club_id, :value => @beer_club.id %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <%= f.submit %>
+        <%end%>      
     <% end %>
+
+    <%= link_to 'Edit', edit_beer_club_path(@beer_club) %>
     
     <% if current_user.admin? %>
     	<td><%= link_to 'Destroy', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
+  <% end %>
 </p>
 
 <%= link_to 'Back', beer_clubs_path %>
