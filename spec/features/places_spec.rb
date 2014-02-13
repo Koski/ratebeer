@@ -11,10 +11,10 @@ describe "Places" do
 	end
 	it "if one is returned by the API, it is shown at the page" do
 		BeermappingApi.stub(:places_in).with("kumpula").and_return(
-			[ Place.new(:name => "Oljenkorsi") ]
-			)
+			[ Place.new(:name => "Oljenkorsi", id: 1) ] )
 
 		visit places_path
+
 		fill_in('city', with: 'kumpula')
 		click_button "Search"
 
@@ -23,10 +23,10 @@ describe "Places" do
 
 	it "if more than one is returned by the API, all of them are shown" do
 		BeermappingApi.stub(:places_in).with("olari").and_return(
-			[ Place.new(:name => "Davisto"),
-				Place.new(:name => "Janoinen Kameli"),
-				Place.new(:name => "Kuutamo")]
-				)
+			[ Place.new(:name => "Davisto", id: 1),
+				Place.new(:name => "Janoinen Kameli", id: 2),
+				Place.new(:name => "Kuutamo", id: 3)] )
+		
 		visit places_path
 		fill_in('city', with: 'olari')
 		click_button "Search"

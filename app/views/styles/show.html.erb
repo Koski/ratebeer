@@ -1,14 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @style.name %>
-</p>
+
+  <h2><%= @style.name %></h2>
+  
+
 
 <p>
   <strong>Description:</strong>
-  <%= @style.description %>
+  <p>
+  	<%= @style.description %>
+  </p>
 </p>
+<p>
+	<strong>Beers:</strong>
+</p>
+<% @beers.each do |beer| %>
+	<% if @style.id == beer.style_id %>
+		<li><%= beer.name %></li>
+	<% end %>
+<% end %>
 
-<%= link_to 'Edit', edit_style_path(@style) %> |
-<%= link_to 'Back', styles_path %>
+<p>
+	<%= link_to 'Edit', edit_style_path(@style) %> |
+	<%= link_to 'Back', styles_path %>
+</p>

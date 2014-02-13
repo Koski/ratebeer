@@ -18,16 +18,21 @@ FactoryGirl.define do
     year 1900
   end
 
+  factory :style do
+    name "Lager"
+    description "Lager is good"
+  end
+
   factory :beer do
     name "anonymous"
     brewery
-    style "Lager"
+    style
   end
 
   factory :nanny, class: Beer do
     name "nanny state"
     brewery
-    style "lowalcohol"
+    style
   end
 
   factory :koff, class: Brewery do
