@@ -12,8 +12,11 @@
  *= require_tree .
  */
 .naviBar {
+	border-style:double;
+	border-width:thick;
+	border-color: black;
     padding: 15px;
-    background: aquamarine;
+    background: yellow;
 }
 iframe {
 	height: 300px;
