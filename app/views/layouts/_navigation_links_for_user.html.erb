@@ -1,0 +1,8 @@
+<% if not current_user.nil? %>
+	<li><%= link_to 'Rate a beer', new_rating_path %></li>
+	<li><%= link_to 'Join a club', new_membership_path %></li>
+	<li><%= link_to 'sign out', signout_path, method: :delete %>
+<% else %>
+	<li><%= link_to 'sign in', signin_path %></li>
+	<li><%= link_to 'sign up', signup_path %></li>	
+<% end %>

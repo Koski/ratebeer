@@ -1,0 +1,19 @@
+<table class = "table table-hover">
+	
+	<thead>
+		<tr>
+			<th></th>
+			<th>average</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% top.each do |b| %>
+
+		<tr>
+			<td><%= b.name %></td>
+			<td><%= b.average_rating %></td>
+		</tr>	
+		<% end %>
+	</tbody>
+</table>

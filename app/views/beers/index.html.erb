@@ -1,11 +1,11 @@
 <h1>Listing beers</h1>
 
-<table>
+<table class= "table table-hover">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Style</th>
-      <th>Brewery</th>
+      <th><%= link_to 'Name', beers_path(order:"name")%></th>
+      <th><%= link_to 'Style', beers_path(order:"style")%></th>
+      <th><%= link_to 'Brewery', beers_path(order:"brewery")%></th>
       <th></th>
       <th></th>
     </tr>
@@ -24,7 +24,7 @@
 
 <br>
 <% if not current_user.nil? %>
-  <%= link_to 'New Beer', new_beer_path %>
+  <%= link_to 'New Beer', new_beer_path, class:"btn btn-primary btn-sm" %>
 <% end %> 
 <p>
 

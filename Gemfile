@@ -6,7 +6,11 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
-#heroku related gems
+
+group :development do
+  gem 'rails_layout'
+end
+
 group :development, :test do
   gem 'sqlite3'
 
@@ -19,6 +23,8 @@ group :test do
   gem 'rspec-rails', '~> 2.14.1'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner', '< 1.1.0'
   
 end
 
@@ -28,7 +34,13 @@ group :production do
   gem 'rails_12factor'
 end
 
+#bootsrap
+gem 'bootstrap-sass'
 
+#jQuery
+gem 'jquery-turbolinks'
+
+#cache
 gem "rails-settings-cached", "0.3.1"
 
 #get api

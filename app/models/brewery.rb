@@ -5,6 +5,9 @@ class Brewery < ActiveRecord::Base
   has_many :beers, :dependent => :destroy
   has_many :ratings, :through => :beers
 
+  scope :active, -> { where active:true }
+  scope :retired, -> { where active:[nil,false] }
+
   def no_future_year
     if year > Time.now.year
       errors.add(:year, "- no futuristic breweries!")
@@ -16,6 +19,11 @@ class Brewery < ActiveRecord::Base
                                     only_integer: true }
   validate :no_future_year
 
+
+  def self.top(n)
+    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating||0) }
+    sorted_by_rating_in_desc_order.take(n)
+  end
 
   def print_report
     puts name

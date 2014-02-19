@@ -26,6 +26,12 @@ Ratebeer::Application.routes.draw do
 
   root 'breweries#index'
 
+  get 'brewerylist', to:'breweries#list'
+
+  get 'beerlist', to:'beers#list'
+
+  get 'ngbeerlist', to:'beers#nglist'
+
  # get 'kaikki_bisukat', to: 'beers#index'
 
  # get 'ratings', to: 'ratings#index'
