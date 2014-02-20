@@ -15,8 +15,38 @@
 	</div>
 </div>
 <div class = "row">
-	<h4>Most active users</h4>
-	<div class = "col-md-5">
+	<div class = "col-md-7">
+		<h4>Most active users</h4>
+		<table class = "table table-hover">
+			<thead>
+				<th></th>
+				<th>Favorite beer</th>
+				<th>Preferred style</th>
+				<th>Favorite Brewery</th>
+				<th>Ratings</th>
+			</thead>
+			<tbody>
+				<% @active_users.each do |user| %>
+				<tr>
+					<td><%= user.username %></td>
+					<td><%= user.favorite_beer.name %></td>
+					<td><%= user.favorite_style.name %></td>
+					<td><%= user.favorite_brewery %></td>					
+					<td><%= user.ratings.count %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
 
+<div class = "row">
+	<div class = "col-md-5">
+		<h4>Last five ratings</h4>	
+			<ul>
+				<% @recent_ratings.each do |rating| %>
+					<li><%= link_to rating.beer.name, rating.beer%> , <%= rating.score %> , <%= link_to rating.user.username, rating.user %></li>
+				<% end %>
+			</ul>	
 	</div>
 </div>

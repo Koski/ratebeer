@@ -34,6 +34,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+#efficiency monitor
+gem 'rack-mini-profiler'
+
 #bootsrap
 gem 'bootstrap-sass'
 

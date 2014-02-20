@@ -1,17 +1,5 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-<script>
-    function BreweriesController($scope, $http) {
-        $http.get('breweries.json').success( function(data, status, headers, config) {
-        	$scope.breweries = data;
-        });
-        $scope.order = 'name';
 
-        $scope.click = function (order) {
-        	$scope.order = order;
-        	console.log(order);
-        }
-    }
-</script>
 <h2>Breweries</h2>
 
 <div ng-app ng-controller="BreweriesController">
@@ -23,8 +11,22 @@
         </thead>
         
         <tr ng-repeat = "brewery in breweries| orderBy: order| filter: searchText">
-            <td>{{brewery.name}}</td>
+            <td><a href="/breweries/{{brewery.id}}">{{brewery.name}}</a></td>
             <td>{{brewery.year}}</td>
         </tr>
     </table>
 </div>
+<script>
+    function BreweriesController($scope, $http) {
+        $http.get('breweries.json').success( function(data, status, headers, config) {
+            $scope.breweries = data;
+        });
+        $scope.order = 'name';
+
+        $scope.click = function (order) {
+            $scope.order = order;
+            console.log(order);
+        }
+    }
+</script>
+<h1>SHIT</h1>

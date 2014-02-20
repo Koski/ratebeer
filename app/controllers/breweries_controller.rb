@@ -11,8 +11,8 @@ class BreweriesController < ApplicationController
     @active_breweries = Brewery.active
     @retired_breweries = Brewery.retired
     case order
-      when 'name' then @breweries.sort_by!{ |b| b.name}
-      when 'year' then @breweries.sort_by!{ |b| b.year}
+      when 'name' then @active_breweries.sort_by!{ |b| b.name}
+      when 'year' then @active_breweries.sort_by!{ |b| b.year}
     end
   end
 
@@ -22,6 +22,15 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+  end
+
+  def toggle_activity
+    brewery = Brewery.find(params[:id])
+    brewery.update_attribute :active, (not brewery.active)
+
+    new_status = brewery.active? ? "active" : "retired"
+
+    redirect_to :back, notice:"brewery activity status changed to #{new_status}"
   end
 
   # GET /breweries/new
@@ -36,6 +45,7 @@ class BreweriesController < ApplicationController
   # POST /breweries
   # POST /breweries.json
   def create
+    expire_fragment('breweryIndex')
     @brewery = Brewery.new(brewery_params)
 
     respond_to do |format|
@@ -52,6 +62,7 @@ class BreweriesController < ApplicationController
   # PATCH/PUT /breweries/1
   # PATCH/PUT /breweries/1.json
   def update
+    expire_fragment('breweryIndex')
     respond_to do |format|
       if @brewery.update(brewery_params)
         format.html { redirect_to @brewery, notice: 'Brewery was successfully updated.' }
@@ -66,6 +77,7 @@ class BreweriesController < ApplicationController
   # DELETE /breweries/1
   # DELETE /breweries/1.json
   def destroy
+    expire_fragment('breweryIndex')
     @brewery.destroy
     respond_to do |format|
       format.html { redirect_to breweries_url }
