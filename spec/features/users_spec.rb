@@ -43,7 +43,7 @@ describe "User" do
       create_rating(beer:"iso 3", score:10)
       create_rating(beer:"Karhu", score:20)
       visit user_path(user)
-      expect(page).to have_content 'Pekka Has made 2 ratings with an average of 15'
+      expect(page).to have_content 'Pekka Has made 2 ratings with an average of 15.0'
       expect(page).to have_content 'iso 3, 10'
       expect(page).to have_content 'Karhu, 20'
     end

@@ -35,7 +35,7 @@ group :production do
 end
 
 #efficiency monitor
-gem 'rack-mini-profiler'
+#gem 'rack-mini-profiler'
 
 #bootsrap
 gem 'bootstrap-sass'
