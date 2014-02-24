@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-21T12:01:55+02:00">2014-02-21T12:01:55+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-24T15:39:31+02:00">2014-02-24T15:39:31+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">86.07%</span></span>
+    (<span class="covered_percent"><span class="yellow">84.95%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.71
+         2.69
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>51</b> files in total.
-    <b>732</b> relevant lines. 
-    <span class="green"><b>630</b> lines covered</span> and
-    <span class="red"><b>102</b> lines missed </span>
+    <b>50</b> files in total.
+    <b>731</b> relevant lines. 
+    <span class="green"><b>621</b> lines covered</span> and
+    <span class="red"><b>110</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -261,16 +261,6 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#09fba738edb603f042ce034b451d4a5108187e42" class="src_link" title="app/models/settings.rb">app/models/settings.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>2</td>
-        <td>1</td>
-        <td>1</td>
-        <td>0</td>
-        <td>1.0</td>
-      </tr>
-      
-      <tr>
         <td class="strong"><a href="#47b76061ae7e983b04eddd4ff5befe58e96fe2a2" class="src_link" title="app/models/style.rb">app/models/style.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>14</td>
@@ -412,12 +402,12 @@
       
       <tr>
         <td class="strong"><a href="#f4155de1eab009091fd3be0bb34ae52b8250fa7f" class="src_link" title="lib/beermapping_api.rb">lib/beermapping_api.rb</a></td>
-        <td class="red strong">72.73 %</td>
+        <td class="red strong">36.36 %</td>
         <td>38</td>
         <td>22</td>
-        <td>16</td>
-        <td>6</td>
-        <td>1.3</td>
+        <td>8</td>
+        <td>14</td>
+        <td>0.6</td>
       </tr>
       
       <tr>
@@ -1313,7 +1303,7 @@
         <li class="covered" data-hits="5" data-linenumber="9">
           <span class="hits">5</span>
           
-          <code class="ruby">    @beers = Beer.includes(:brewery, :style).all</code>
+          <code class="ruby">    @beers = Beer.includes(:brewery, :style).load</code>
         </li>
       
         <li class="covered" data-hits="5" data-linenumber="10">
@@ -4404,36 +4394,6 @@
   </pre>
 </div>
       
-        <div class="source_table" id="09fba738edb603f042ce034b451d4a5108187e42">
-  <div class="header">
-    <h3>app/models/settings.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>1</b> relevant lines. 
-      <span class="green"><b>1</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class Settings &lt; RailsSettings::CachedSettings</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="2">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-      
         <div class="source_table" id="47b76061ae7e983b04eddd4ff5befe58e96fe2a2">
   <div class="header">
     <h3>app/models/style.rb</h3>
@@ -6549,11 +6509,11 @@
         <div class="source_table" id="f4155de1eab009091fd3be0bb34ae52b8250fa7f">
   <div class="header">
     <h3>lib/beermapping_api.rb</h3>
-    <h4><span class="red">72.73 %</span> covered</h4>
+    <h4><span class="red">36.36 %</span> covered</h4>
     <div>
       <b>22</b> relevant lines. 
-      <span class="green"><b>16</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
     </div>
   </div>
   
@@ -6584,8 +6544,8 @@
           <code class="ruby">    city = city.downcase</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="5">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="4" data-linenumber="5">
+          <span class="hits">4</span>
           
           <code class="ruby">    Rails.cache.fetch(city, :expires_in =&gt; 7.days) { fetch_places_in(city) }</code>
         </li>
@@ -6686,8 +6646,8 @@
           <code class="ruby">  def self.fetch_places_in(city)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="22">
+          
           
           <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
         </li>
@@ -6698,14 +6658,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="24">
+          
           
           <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
           
           <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
         </li>
@@ -6716,8 +6676,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
           
           <code class="ruby">    return [] if places.is_a?(Hash) and places[&#39;id&#39;].nil?</code>
         </li>
@@ -6728,20 +6688,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="29">
+          
           
           <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="30">
+          
           
           <code class="ruby">    places.inject([]) do | set, place |</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="31">
+          
           
           <code class="ruby">      set &lt;&lt; Place.new(place)</code>
         </li>
@@ -6770,8 +6730,8 @@
           <code class="ruby">  def self.key</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="36">
-          <span class="hits">2</span>
+        <li class="missed" data-hits="0" data-linenumber="36">
+          
           
           <code class="ruby">    Settings.beermapping_apikey</code>
         </li>
