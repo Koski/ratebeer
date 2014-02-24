@@ -44,7 +44,7 @@ gem 'bootstrap-sass'
 gem 'jquery-turbolinks'
 
 #cache
-#gem "rails-settings-cached", "0.3.1"
+gem "rails-settings-cached", "0.3.1"
 
 #get api
 gem 'httparty'
