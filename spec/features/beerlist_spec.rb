@@ -45,7 +45,7 @@ describe "Beerlist page" do
 
 	it "when style is clicked beers are shown in order by their style", js:true do
 		visit beerlist_path
-		click_link "Style"
+		click_link "style"
 		sleep 3
 		find('table').find('tr:nth-child(2)').should have_content('Lager')
 		find('table').find('tr:nth-child(3)').should have_content('Rauchbier')
@@ -55,7 +55,7 @@ describe "Beerlist page" do
 
 	it "when brewery is clicked beers are shown in order by their brewery names", js:true do
 		visit beerlist_path
-		click_link "Brewery"
+		click_link "brewery"
 		sleep 3
 		find('table').find('tr:nth-child(2)').should have_content('Ayinger')
 		find('table').find('tr:nth-child(3)').should have_content('Koff')
