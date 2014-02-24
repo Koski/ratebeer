@@ -6,4 +6,7 @@
 <li><%= link_to 'Users', users_path %></li>
 <li><%= link_to 'Clubs', beer_clubs_path %></li>
 <li><%= link_to 'Locations', places_path %></li>
-
+<% if current_user.nil? %>
+	<li><%= link_to 'sign in', signin_path %></li>
+	<li><%= link_to 'sign up', signup_path %></li>	
+<% end %>
